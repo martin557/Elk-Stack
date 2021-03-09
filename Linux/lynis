@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#use lynis to run daily scans for the test groups: malware, authentication, networking, storage, and filesystems that saves the results in /tmp/lynis.partial_scan.log
+lynis audit --tests-from-group malware,authentication,networking,storage,filesystems >> /tmp/lynis.partial_scan.log
+
+
+# run a full-system scan using lynis every week that saves the results in /tmp/lynis.system_scan.log
+
+lynis audit system >> /tmp/lynis.system_scan.log

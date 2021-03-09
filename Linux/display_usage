@@ -1,0 +1,12 @@
+#!/bin/bash
+Display CPU usage
+echo -e "\nCPU Info:" >> $output
+lscpu | grep CPU >> $output
+
+# Display Disk usage
+echo -e "\nDisk Usage:" >> $output
+df -H | head -2 >> $output
+
+#Display the current user
+echo -e "\nCurrent user login information: \n $(who -a) \n" >> $output
+

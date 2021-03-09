@@ -1,0 +1,5 @@
+#this is a powershell script to enumeral access control lists
+$directory=Get-Child-Item
+foreach ($item in $directory) {
+Get-Acl $item
+}

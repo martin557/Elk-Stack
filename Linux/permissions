@@ -1,0 +1,31 @@
+#!/bin/bash
+#this for loops will print the permissions of each file
+files=('/etc/passwd' '/etc/shadow')
+echo -e "\nThe permissions for sensitive /etc files: \n" >> $output
+for file in ${files[@]}
+do
+  ls -l $file >> $output
+done
+
+#check for sudo abilities of each user who has a home directory
+for user in $(ls /home)
+do
+  sudo -lU $user
+done
+
+#verify the results of commands
+commands=(
+  'date'
+  'uname -a'
+  'hostname -s'
+)
+
+for x in {0..2}
+do
+  results=$(${commands[$x]})
+  echo "Results of \"${commands[$x]}\" command:"
+  echo $results
+  echo ""
+
+done
+
