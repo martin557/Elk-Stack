@@ -39,7 +39,7 @@ The configuration details of each machine may be found below.
 |Web-1		|Server; receives web traffic; part of backend pool    |Linux  |10.0.0.5 | 
 |Web-2		|Server; receives web traffic; part of backend pool|Linux			|10.0.0.6 |
 |Web-3		|Server; receives web traffic; part of backend pool|Linux   			|10.0.0.7 |
-|ELK		|Monitors the performance of the web server that is running DVWA and collects and visualizes the data  |Linux|10.1.0.4(Pr.) 40.75.80.174(Pub.)|
+|ELK		|Monitors the performance of the web server that is running DVWA and collects and visualizes the data  |Linux|10.1.0.4(Private) 40.75.80.174(Public)|
             
 ### Access Policies
 
