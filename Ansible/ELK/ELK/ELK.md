@@ -155,7 +155,7 @@ Once the file is copied, it is edited according to the images below.
  
  Then a playbook is written and run.  See metricbeat-playbook.yml for the complete playbook.
  
- ### Extra material
+ ### Extra Material
 
 The following images show the security rules we created for our virtual networks:
 
