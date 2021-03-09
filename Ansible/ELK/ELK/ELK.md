@@ -98,7 +98,9 @@ Metricbeat collects and ships various system and service metrics to a specified 
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned, SSH into the control node and follow the steps below:
  * Copy the Filebeat configuration file to the Ansible container and use the following path to locate the file:  /etc/ansible/filebeat-config.yml.  Using curl for this step is an efficient way to copy this file in order to avoid errors.  The command to run curl is as follows: curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat
 * Update the Filebeat configuration file, filebeat-config.yml, to include the private IP address of the ELK server (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  Be sure to specify port 9200 on line 1105 and port 5601 on line 1805 next to the IP address, separating the IP and the port with a colon in between.   The updated file show display as follows:
-Images/fbeat1.PNG (lines 1105 – 1107)
+Images/fbeat1.PNG (lines 1105 – 1107)![fbeat1](https://user-images.githubusercontent.com/71955581/110434617-09971e80-8080-11eb-92ae-89c88b65109e.PNG)
+![fbeat2](https://user-images.githubusercontent.com/71955581/110434626-0c920f00-8080-11eb-8395-6a9fc747ce23.PNG)
+
 Images/fbeat2.PNG (lines 1804 – 1805)
 This step serves two purposes: 1) It will allow us to connect to Kibana via port 5601 with our home’s public IP address, when we later add a security rule allowing us.  2) It sends the Filebeat’s results to Elasticsearch.  
 * Lastly, edit the username on line 1106 to read “elastic” and the password on line 1107 to read “changeme”.
