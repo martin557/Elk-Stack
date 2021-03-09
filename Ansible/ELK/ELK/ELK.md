@@ -138,7 +138,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
   hosts: elk
   become: true
   tasks:
-# Use apt module
+ - Use apt module
     - name: Install docker.io
       apt:
         update_cache: yes
