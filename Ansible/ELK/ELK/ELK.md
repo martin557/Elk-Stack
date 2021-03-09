@@ -138,11 +138,45 @@ ansible-playbook install-elk.yml
 
  ### Metricbeat
 
-Metricbeat uses the same process of copying a configuration file, editing it, writing a playbook for it, and running the playbook.  The configuration files for Metricbeat are called metricbeat-config.yml.  Once the file is copied, it is edited according to the images below.  
-       
+Metricbeat uses the same process of copying a configuration file, editing it, writing a playbook for it, and running the playbook.  The configuration file for Metricbeat is called metricbeat-config.yml.  The first step is to download it.  
+curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat
 
+Once the file is copied, it is edited according to the images below.  
+    
 ![mbeat1](https://user-images.githubusercontent.com/71955581/110435317-e15bef80-8080-11eb-9ea1-17e0e7335f02.PNG)
 
 ![mbeat2](https://user-images.githubusercontent.com/71955581/110435330-e3be4980-8080-11eb-9711-a7bfad4cc57b.PNG)
+ 
+ Then a playbook is written and run.  See metricbeat-playbook.yml for the complete playbook.
+ 
+ ### Extra material
 
+The following screen shots show the security rules set:
+
+This one shows the security rule allowing our home's public IP address to access Kibana via port 5601 
+
+![NSG1](https://user-images.githubusercontent.com/71955581/110519455-55c37c80-80db-11eb-997f-a97360e0c3e4.PNG)
+![NSG2](https://user-images.githubusercontent.com/71955581/110519472-5a883080-80db-11eb-8837-67088e352eed.PNG)
+
+The next set shows ths security rules for the Jump Box.  This one allows us to connect to the Jump Box via ssh, port 22.
+
+![image](https://user-images.githubusercontent.com/71955581/110519992-ef8b2980-80db-11eb-8a0b-3ca23d8a2899.png)
+![image](https://user-images.githubusercontent.com/71955581/110520036-fade5500-80db-11eb-9220-e6303a52aae7.png)
+
+
+These last images for the Jump Box show rules allowing us to connect to the Jump Box via ssh, port 22 using our home's public IP
+
+![image](https://user-images.githubusercontent.com/71955581/110520678-cb7c1800-80dc-11eb-91ce-e2efea7d7816.png)
+![image](https://user-images.githubusercontent.com/71955581/110520706-d33bbc80-80dc-11eb-954b-44a25edae1a0.png)
+
+This rule allows us to ssh from the Jump Box to the other VMs.  Notice the source destination is the private IP of the Jump Box
+
+![image](https://user-images.githubusercontent.com/71955581/110523264-dab09500-80df-11eb-9335-91a13aaf183d.png)
+![image](https://user-images.githubusercontent.com/71955581/110523488-282d0200-80e0-11eb-8a00-6457d85a14ab.png)
+
+
+These images show the rule to forward port 80 traffic from the load balancer to the Red Team VNet.
+
+![image](https://user-images.githubusercontent.com/71955581/110522851-5e1db680-80df-11eb-9fcf-741f52568e24.png)
+![image](https://user-images.githubusercontent.com/71955581/110522832-5827d580-80df-11eb-9459-e20d33de859f.png)
 
