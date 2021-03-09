@@ -33,8 +33,11 @@ The configuration details of each machine may be found below.
 |Jump Box	|Gateway |Linux		|10.0.0.4 (private) 40.85.168.70 (public)|
 
 |Web-1		|Server; receives web traffic; part of backend pool|Linux|10.0.0.5 | 
+
 |Web-2		|Server; receives web traffic; part of backend pool|Linux			|10.0.0.6 |
+
 |Web-3		|Server; receives web traffic; part of backend pool|Linux			|10.0.0.7 |
+
 |ELK		|Monitors the performance of the web server that is running DVWA and collects and visualizes the data|Linux|10.1.0.4 |
 
 ### Access Policies
