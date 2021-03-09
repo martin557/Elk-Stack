@@ -180,7 +180,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
 
 
-# Installing Filebeat
+### Installing Filebeat
 
 ---
 - name: installing and launching filebeat
@@ -212,7 +212,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
     systemd:
       name: filebeat
       enabled: yes
-#  Installing Metricbeat
+###  Installing Metricbeat
 ---
 - name: Install metric beat
   hosts: webservers
