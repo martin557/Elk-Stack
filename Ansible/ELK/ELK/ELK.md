@@ -182,7 +182,6 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
 ### Installing Filebeat
 
----
 - name: installing and launching filebeat
   hosts: webservers
   become: yes
@@ -213,7 +212,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
       name: filebeat
       enabled: yes
 ###  Installing Metricbeat
----
+
 - name: Install metric beat
   hosts: webservers
   become: true
@@ -250,9 +249,11 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
       name: metricbeat
       enabled: yes
 
-•	Next, run the playbook.  To run the playbook use the following command:
+##Next, run the playbook.  To run the playbook use the following command:
+
 ansible-playbook install-elk.yml
-•	To update Metricbeat’s configuration file, follow the same process as Filebeat’s configuration.  Download the config. file and edit to make the changes as seen below. 
+
+#	#To update Metricbeat’s configuration file, follow the same process as Filebeat’s configuration.  Download the config. file and edit to make the changes as seen below. 
 
 Images/mbeat1.PNG
 Images/mbeat2.PNG
