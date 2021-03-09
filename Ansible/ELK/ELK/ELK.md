@@ -61,7 +61,7 @@ A summary of the access policies in place can be found in the table below.
 |Web-2	    |NO	       |10.0.0.4|
 |Web-3	    |NO    	   |10.0.0.4|
 
-Web-1, Web-2, and Web-3 are only accessible via Jump Box (SSH); ELK is only accessible via our home’s public IP address via port 5601 that we enabled as a network security group, and the Jump Box is only accessible via our home’s public IP address via SSH on port 22 that we enabled as a network security group.
+Web-1, Web-2, and Web-3 are only accessible via Jump Box (SSH); ELK is accessible via our home’s public IP address via port 5601 that we enabled as a network security rule and via the Jump Box.  The Jump Box is only accessible via our home’s public IP address via SSH on port 22 that we enabled as a network security group.
 
 ### Elk Configuration            
 
