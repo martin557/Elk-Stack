@@ -48,14 +48,10 @@ A summary of the access policies in place can be found in the table below.
 |Name  |Publicly Accessible	    |IP Addresses Allowed to enter VM   |   
 -----|--------------------|-----------------------------------------
 |Jump box   |YES	     |72.65.221.165 (via SSH, port 22)|
-
-|ELK 	     |YES       |72.65.221.165 (via http, port 5601)|
-
-|Web-1	   |NO	    |10.0.0.4 (private)40.85.168.70 (public)|
-
-|Web-2	  |NO	    |10.0.0.4 (private)40.85.168.70 (public)|
-
-|Web-3	  |NO    	|10.0.0.4  (private)40.85.168.70 (public)|
+|ELK 	      |YES       |72.65.221.165 (via http, port 5601)|
+|Web-1	    |NO	       |10.0.0.4 (private)40.85.168.70 (public)|
+|Web-2	    |NO	       |10.0.0.4 (private)40.85.168.70 (public)|
+|Web-3	    |NO    	  |10.0.0.4  (private)40.85.168.70 (public)|
 
 (Web-1, Web-2, and Web-3 were only accessible via Jump Box; ELK was only accessible via our home’s public IP address via port 5601 that we enabled as a network security group, and the jump box was only accessible via our home’s public IP address via SSH on port 22 that we enabled as a network security group.)
 ### Elk Configuration            
