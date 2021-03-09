@@ -48,7 +48,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 
 72.65.221.165.
 
-Machines within the network can only be accessed by a Jump Box via SSH.
+Machines within the network can only be accessed by the Jump Box's Ansible container via SSH.
 The Jump Box was the only machine that was allowed access to ELK.  It was accessed via the Jump Box's public IP address of 40.85.168.70.  
 
 A summary of the access policies in place can be found in the table below.
@@ -119,16 +119,16 @@ This step serves two purposes: 1) It will allow us to connect to Kibana via port
 ![KibGui2](https://user-images.githubusercontent.com/71955581/110434996-7a3e3b00-8080-11eb-87d7-6ca089b47db3.png)
 
 The file that is the playbook for installing filebeat is called filebeat-playbook.yml and it is copied to the /etc/ansible/roles directory on the Ansible VM. 
-In order to use Ansible to run the playbook and configure a specific machine, that machine must be added to the list of machines Ansible can discover and connect to.  This was done by updating the hosts file, located in/etc/ansible/hosts on the Ansible VM.  This text file contains names of groups.  When playbooks are run with Ansible a specific group needs to be specified, such as elk. This allows us to run certain playbooks on some machines, but not on others.  When updating this file, the private IP address of the server(s) on which the play book is to be run is added to the inventory. The line listing the group is left uncommented as well as the line containing the newly added private IP address.  
-To specify which machine to install the ELK server on, we created a group called “elk” in the hosts file.  We then added the private IP of the ELK VM and specified python3 with “ansible_python_interpreter=/usr/bin/python3”.  The image below illustrates edits we made in the configuration file.
+In order to use Ansible to run the playbook and configure a specific machine, that machine must be added to the list of machines Ansible can discover and connect to.  This is done by updating the hosts file, located in/etc/ansible/hosts on the Ansible VM.  This text file contains names of groups.  When playbooks are run with Ansible a specific group needs to be specified, such as elk. This allows  certain playbooks to be run  on some machines, but not on others.  When updating this file, the private IP address of the server(s) on which the play book is to be run is added to the inventory. The line listing the group is left uncommented as well as the line containing the newly added private IP address.  
+To specify which machine to install the ELK server on, create a group called “elk” in the hosts file.   Then add the private IP of the ELK VM and specified python3 with “ansible_python_interpreter=/usr/bin/python3”.  The image below illustrates the changes to make in the configuration file.
 
 [hosts_edits_1](https://user-images.githubusercontent.com/71955581/110435144-a35ecb80-8080-11eb-9a18-510a81f11bea.png)
 
-(This is very similar to the way we configured Web-1, Web-2, and Web-3 except for IP address and where we added the IP address.  In this situation, the IPs were added to a group called webservers. )
+(This is very similar to the way  Web-1, Web-2, and Web-3 were configured except for the number of the IP address and the location of where it was added in the configuration file.)
 
 ![hosts_edits_2](https://user-images.githubusercontent.com/71955581/110435217-bbcee600-8080-11eb-89c9-80ff74d0b27a.png)
 
-To specify which machine to install Filebeat on, we accessed the Filebeat configuration file called filebeat-config.yml  and edited it to include the private IP address of the ELK VM (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  We then made sure to specify port 9200 on line 1105 to the right of the IP and port 5601 on line 1805 next to the IP address, separating the Lastly we changed the username on line 1106 to read “elastic” and the password on line 1107 to read, “ changeme”.  Before saving the file, the configuration file should display the same images as seen in the section “###Using The Playbook”.  They are depicted below.
+To specify which machine to install Filebeat on, access the Filebeat configuration file called filebeat-config.yml  and edit it to include the private IP address of the ELK VM (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  Be sure to specify port 9200 on line 1105 to the right of the IP and port 5601 on line 1805 next to the IP address, separating them with a colon (:) in between.   Lastly change the username on line 1106 to read “elastic” and the password on line 1107 to read, “ changeme”.  Before saving the file, verify that the configuration file displays the same images as seen in the section “###Using The Playbook”.  They are depicted below once again.
  
 ![fbeat1](https://user-images.githubusercontent.com/71955581/110435950-a27a6980-8081-11eb-882d-587ae5a8ad9d.PNG)
 ![fbeat2](https://user-images.githubusercontent.com/71955581/110435957-a4442d00-8081-11eb-99fa-df409fb0f096.PNG)
@@ -159,19 +159,19 @@ Once the file is copied, it is edited according to the images below.
 
 The following images show the security rules we created for our virtual networks:
 
-This security rule allows our home's public IP address to access Kibana via port 5601. 
+This security rule allows the user's home public IP address to access Kibana via port 5601. 
 
 ![NSG1](https://user-images.githubusercontent.com/71955581/110519455-55c37c80-80db-11eb-997f-a97360e0c3e4.PNG)
 ![NSG2](https://user-images.githubusercontent.com/71955581/110519472-5a883080-80db-11eb-8837-67088e352eed.PNG)
   
 
-This rule allows us to connect to the Jump Box via ssh, port 22, with our home's public IP address. 
+This rule allows connection to the Jump Box via ssh, port 22, with our home's public IP address. 
 
 ![image](https://user-images.githubusercontent.com/71955581/110519992-ef8b2980-80db-11eb-8a0b-3ca23d8a2899.png)
 ![image](https://user-images.githubusercontent.com/71955581/110520036-fade5500-80db-11eb-9220-e6303a52aae7.png)
 
 
-This rule allows us to ssh from the Jump Box to the other VMs.  Notice the source destination is the private IP of the Jump Box.
+This rule allows ssh connection from the Jump Box to the other VMs.  Notice the source destination is the private IP of the Jump Box.
 
 ![image](https://user-images.githubusercontent.com/71955581/110523264-dab09500-80df-11eb-9335-91a13aaf183d.png)
 ![image](https://user-images.githubusercontent.com/71955581/110523488-282d0200-80e0-11eb-8a00-6457d85a14ab.png)
@@ -182,7 +182,7 @@ This rule allows port 80 traffic to be forwarded from the load balancer to the R
 ![image](https://user-images.githubusercontent.com/71955581/110522851-5e1db680-80df-11eb-9fcf-741f52568e24.png)
 ![image](https://user-images.githubusercontent.com/71955581/110522832-5827d580-80df-11eb-9459-e20d33de859f.png)
 
-Finally, this last rule shows how we set the health probe check on the load balancer.
+Finally, this last rule shows the health probe setting on the load balancer.
 
 ![image](https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
 
