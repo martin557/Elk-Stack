@@ -22,13 +22,13 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly available in addition to restricting traffic to the network.  It also plays a part in the redundancy of our network.  While the VMs in the backend pool provide the redundancy, the load balancer is the device responsible for sending traffic to them to handle the flow of requests.   
 A load balancer protects the availability of resources.  It does this by first preventing overwhelm on a single server by evenly distributing traffic to all of the servers.  This also helps mitigate DDos attacks.  Secondly, it has a health probe feature that regularly checks the functionality of the other machines to verify that they are working properly before sending traffic to them.  Problematic machines are reported and traffic to them is stopped.  This ensures high availability by sending requests only to servers that are online.          
 
-The advantage of a jump box is twofold.  First, traffic is forced through a single node making it easier to implement routing logic and design networks. By focusing on the interactions between the routers instead of all of the machines, we only have to worry about a few connections between a few machines, rather than connections between all machines.  Secondly, the jump box is exposed to the public internet and sits in front of other machines that are not exposed to the internet. Therefore, the other machines were configured without being exposed internet.  This adds a layer of protection.  
+The advantage of a jump box is twofold.  First, traffic is forced through a single node making it easier to implement routing logic and design networks. By focusing on the interactions between the routers instead of all of the machines, we only have to worry about a few connections between a few machines, rather than connections between all machines.  Secondly, the jump box is exposed to the public internet and sits in front of other machines that are not exposed to the internet. Therefore, the other machines were configured without being exposed to the internet.  This adds a layer of protection.  
+
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files and system metrics.
- By collecting data about the file system, Filebeat looks out for which files have changed and when they were changed.  
-Metricbeat is a lightweight shipper that records and periodically collects metrics from the operating system and from services running on the server and takes the metrics and statistics that it collects and ships them to the output that users specify, such as Elasticsearch or Logstash.  The metrics that ir records is simply a measurement about an aspect of the system, such as CPU usage and uptime, which is a measure of how long a machine has been on.  This collection helps analysts determine the health of a machine.     
+By collecting data about the file system, Filebeat looks out for which files have changed and when they changed.  
+Metricbeat is a lightweight shipper that records and periodically collects metrics from the operating system and from services running on the server and takes the metrics and statistics that it collects and ships them to the output that users specify, such as Elasticsearch or Logstash.  The metrics that it records is simply a measurement about an aspect of the system, such as CPU usage and uptime, which is a measure of how long a machine has been on.  This collection helps analysts determine the health of a machine.     
 
 The configuration details of each machine may be found below. 
-
 
 
 |Name		|Function |Operating System|IP Address |
@@ -37,7 +37,7 @@ The configuration details of each machine may be found below.
 |Web-1		|Server; receives web traffic; part of backend pool    |Linux  |10.0.0.5 | 
 |Web-2		|Server; receives web traffic; part of backend pool|Linux			|10.0.0.6 |
 |Web-3		|Server; receives web traffic; part of backend pool|Linux   			|10.0.0.7 |
-|ELK		|Monitors the performance of the web server that is running DVWA and collects and visualizes the data  |Linux|10.1.0.4 |
+|ELK		|Monitors the performance of the web server that is running DVWA and collects and visualizes the data  |Linux|10.1.0.4(Pr.) 40.75.80.174(Pub.)|
             
 ### Access Policies
 
