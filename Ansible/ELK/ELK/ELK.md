@@ -112,8 +112,11 @@ This step serves two purposes: 1) It will allow us to connect to Kibana via port
 The file that is the playbook for installing filebeat is called filebeat-playbook.yml and it is copied to the /etc/ansible/roles directory on the Ansible VM. 
 In order to use Ansible to run the playbook and configure a specific machine, that machine must be added to the list of machines Ansible can discover and connect to.  This was done by updating the hosts file, located in/etc/ansible/hosts on the Ansible VM.  This text file contains names of groups.  When playbooks are run with Ansible a specific group needs to be specified, such as elk. This allows us to run certain playbooks on some machines, but not on others.  When updating this file, the private IP address of the server(s) on which the play book is to be run is added to the inventory. The line listing the group is left uncommented as well as the line containing the newly added private IP address.  
 To specify which machine to install the ELK server on, we created a group called “elk” in the hosts file.  We then added the private IP of the ELK VM and specified python3 with “ansible_python_interpreter=/usr/bin/python3”.  The image below illustrates edits we made in the configuration file.
+
 Images/hosts_edits.PNG![hosts_edits_1](https://user-images.githubusercontent.com/71955581/110435144-a35ecb80-8080-11eb-9a18-510a81f11bea.png)
+
 (This is very similar to the way we configured Web-1, Web-2, and Web-3 except for IP address and where we added the IP address.  In this situation, the IPs were added to a group called webservers. )
+
 ![hosts_edits_2](https://user-images.githubusercontent.com/71955581/110435217-bbcee600-8080-11eb-89c9-80ff74d0b27a.png)
 
 To specify which machine to install Filebeat on, we accessed the Filebeat configuration file called filebeat-config.yml  and edited it to include the private IP address of the ELK VM (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  We then made sure to specify port 9200 on line 1105 to the right of the IP and port 5601 on line 1805 next to the IP address, separating the Lastly we changed the username on line 1106 to read “elastic” and the password on line 1107 to read, “ changeme”.  Before saving the file, the configuration file should display the same images as seen in the section “###Using The Playbook”.  They are depicted below.
@@ -189,7 +192,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
 ### Installing Filebeat
 
-- name: installing and launching filebeat
+  - name: installing and launching filebeat
   hosts: webservers
   become: yes
   tasks:
@@ -220,7 +223,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
       enabled: yes
 ###  Installing Metricbeat
 
-- name: Install metric beat
+  - name: Install metric beat
   hosts: webservers
   become: true
   tasks:
@@ -238,31 +241,31 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
       src: /etc/ansible/metricbeat-config.yml
       dest: /etc/metricbeat/metricbeat.yml
 
- Use command module
+ #Use command module
   - name: enable and configure docker module for metric beat
     command: metricbeat modules enable docker
 
- Use command module
+ #Use command module
   - name: setup metricbeat
     command: metricbeat setup
 
-  Use command module
+  #Use command module
   - name: start metric beat
     command: service metricbeat start
 
-  Use systemd module
+  #Use systemd module
   - name: enable service metricbeat on boot
     systemd:
       name: metricbeat
       enabled: yes
 
-Next, run the playbook.  To run the playbook use the following command:
-
-ansible-playbook install-elk.yml
+#Next, run the playbook.  To run the playbook use the following command:
+#ansible-playbook install-elk.yml
 
 To update Metricbeat’s configuration file, follow the same process as Filebeat’s configuration.  Download the config. file and edit to make the changes as seen below. 
 
- ![mbeat1](https://user-images.githubusercontent.com/71955581/110435317-e15bef80-8080-11eb-9ea1-17e0e7335f02.PNG)
+![mbeat1](https://user-images.githubusercontent.com/71955581/110435317-e15bef80-8080-11eb-9ea1-17e0e7335f02.PNG)
+
 ![mbeat2](https://user-images.githubusercontent.com/71955581/110435330-e3be4980-8080-11eb-9711-a7bfad4cc57b.PNG)
 
 
