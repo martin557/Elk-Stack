@@ -1,5 +1,5 @@
 #!/bin/bash
-#this shell script will identify the dealer for a specific casino game on a certain date and specific tim.  This will help detect future fraud at Lucky Duck.e
+#this shell script will identify the dealer for a specific casino game on a certain date and specific tim.  This will help detect future fraud at Lucky Duck
 cat $1_Dealer_schedule | awk -F" " '{print $1, $2, '$3','$4' }'| grep "$2"
 
 
