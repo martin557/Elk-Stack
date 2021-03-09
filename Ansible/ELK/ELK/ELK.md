@@ -179,7 +179,7 @@ These images show the rule to forward port 80 traffic from the load balancer to 
 
 Finally, this last image shows how we set the health probe check on the load balancer.
 
-[LBrules](https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
+(https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
 
 
 
