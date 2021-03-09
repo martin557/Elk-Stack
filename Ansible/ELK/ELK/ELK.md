@@ -127,10 +127,10 @@ Images/fbeat2.PNG
 In order to check that the ELK server is running navigate to the following URL: http://40.75.80.174:5601/app/kibana
 Images/KibUrl.PNG
  
-				Bonus Material
+####  Bonus Material
 The playbook for installing ELK, Filebeat, and Metricbeat:
 
-				Installing ELK
+### Installing ELK
 
 ---
 - name: Configure Elk VM with Docker
@@ -188,7 +188,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
 
 
-				Installing Filebeat
+# Installing Filebeat
 
 ---
 - name: installing and launching filebeat
@@ -220,7 +220,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
     systemd:
       name: filebeat
       enabled: yes
-			Installing Metricbeat
+##  Installing Metricbeat
 ---
 - name: Install metric beat
   hosts: webservers
