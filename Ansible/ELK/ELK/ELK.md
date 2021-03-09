@@ -1,7 +1,9 @@
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
-![image](https://user-images.githubusercontent.com/71955581/110492043-d2486200-80bf-11eb-9ebf-c1fd882fe5de.png)
+
+![image](https://user-images.githubusercontent.com/71955581/110527678-434e4080-80e5-11eb-8a02-faace7634529.png)
+
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible hosts configuration file may be used to install only certain pieces of it, such as Filebeat.
 
