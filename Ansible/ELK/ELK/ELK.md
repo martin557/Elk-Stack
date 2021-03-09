@@ -67,13 +67,21 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because automating configurations with provisioner tools such as Ansible eliminates human error in the process.
 
 The playbook implements the following tasks:
+
 •	Configures Elk VM with Dockers
+
 •	Installs two apt packages called docker.io, the Docker engine, used for running containers, and python3-pip, the package used to install Python software
+
 •	Installs a pip package called docker, the Python client for Docker, which is required by Ansible to control the state of Docker containers.
+
 •	Downloads and launches the Docker container called sebp/elk:76;  sebp is the organization that made the container. elk is the container and 761 is the version.
+
 •	Configures the container to start with the following port mappings: 5601:5601, 9200:9200, and 5044:5044 
+
 •	Configures the VM to use more memory; The ELK container will not run without this setting.
+
 •	Starts the container
+
 •	Enables the docker service on boot, so that any time the ELK VM is restarted, the docker service starts up automatically
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
