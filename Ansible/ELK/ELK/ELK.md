@@ -44,9 +44,12 @@ The configuration details of each machine may be found below.
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
-Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP address: 72.65.221.165
-Machines within the network can only be accessed by a jump box.
-The jump box was the only machine that was allowed access to ELK.  It was accessed via the jump box's public IP address of 40.85.168.70.  
+Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following whitelisted IP address: 
+
+72.65.221.165.
+
+Machines within the network can only be accessed by a Jump Box via SSH.
+The Jump Box was the only machine that was allowed access to ELK.  It was accessed via the Jump Box's public IP address of 40.85.168.70.  
 
 A summary of the access policies in place can be found in the table below.
 
