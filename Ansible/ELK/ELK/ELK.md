@@ -45,13 +45,13 @@ The jump box was the only machine that was allowed access to ELK.  It was access
 
 A summary of the access policies in place can be found in the table below.
 
-|Name of VM     |Publicly Accessible	    |IP Addresses Allowed to enter VM   
---------------------------------------------------------------------
+|Name  |Publicly Accessible	    |IP Addresses Allowed to enter VM   |   
+-----|--------------------|-----------------------------------------
 |Jump box   |YES	     |72.65.221.165 (via SSH, port 22)|
 
 |ELK 	      |YES       |72.65.221.165 (via http, port 5601)|
 
-|Web-1	      |NO	    |10.0.0.4 (private)40.85.168.70 (public)|
+|Web-1	    |NO	    |10.0.0.4 (private)40.85.168.70 (public)|
 
 |Web-2	   |NO	    |10.0.0.4 (private)40.85.168.70 (public)|
 
