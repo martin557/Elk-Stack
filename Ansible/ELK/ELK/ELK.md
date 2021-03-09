@@ -157,35 +157,34 @@ Once the file is copied, it is edited according to the images below.
  
  ### Extra material
 
-The following screen shots show the security rules set:
+The following images show the security rules we created for our virtual networks:
 
-This one shows the security rule allowing our home's public IP address to access Kibana via port 5601 
+This security rule allows our home's public IP address to access Kibana via port 5601. 
 
 ![NSG1](https://user-images.githubusercontent.com/71955581/110519455-55c37c80-80db-11eb-997f-a97360e0c3e4.PNG)
 ![NSG2](https://user-images.githubusercontent.com/71955581/110519472-5a883080-80db-11eb-8837-67088e352eed.PNG)
+  
 
-The next set shows ths security rules for the Jump Box.  
-
-This one allows us to connect to the Jump Box via ssh, port 22, with our home's public IP address. 
+This rule allows us to connect to the Jump Box via ssh, port 22, with our home's public IP address. 
 
 ![image](https://user-images.githubusercontent.com/71955581/110519992-ef8b2980-80db-11eb-8a0b-3ca23d8a2899.png)
 ![image](https://user-images.githubusercontent.com/71955581/110520036-fade5500-80db-11eb-9220-e6303a52aae7.png)
 
 
-This rule allows us to ssh from the Jump Box to the other VMs.  Notice the source destination is the private IP of the Jump Box
+This rule allows us to ssh from the Jump Box to the other VMs.  Notice the source destination is the private IP of the Jump Box.
 
 ![image](https://user-images.githubusercontent.com/71955581/110523264-dab09500-80df-11eb-9335-91a13aaf183d.png)
 ![image](https://user-images.githubusercontent.com/71955581/110523488-282d0200-80e0-11eb-8a00-6457d85a14ab.png)
 
 
-These images show the rule to forward port 80 traffic from the load balancer to the Red Team VNet.
+This rule allows port 80 traffic to be forwarded from the load balancer to the Red Team VNet.
 
 ![image](https://user-images.githubusercontent.com/71955581/110522851-5e1db680-80df-11eb-9fcf-741f52568e24.png)
 ![image](https://user-images.githubusercontent.com/71955581/110522832-5827d580-80df-11eb-9459-e20d33de859f.png)
 
-Finally, this last image shows how we set the health probe check on the load balancer.
+Finally, this last rule shows how we set the health probe check on the load balancer.
 
-(https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
+![image](https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
 
 
 
