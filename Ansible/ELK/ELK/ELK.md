@@ -29,7 +29,7 @@ The configuration details of each machine may be found below.
 
 
 |Name		|Function |Operating System|IP Address |
------------------------------------------------------------------------------------------
+----|------------|-----------|--------------------------------------------------------------
 |Jump Box	|Gateway |Linux		     |10.0.0.4 (private) 40.85.168.70 (public)|
 
 |Web-1		|Server; receives web traffic; part of backend pool    |Linux  |10.0.0.5 | 
@@ -167,7 +167,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
         state: present
         reload: yes
 
-      # Use docker_container module
+# Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
         name: elk
