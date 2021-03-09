@@ -116,7 +116,7 @@ The file that is the playbook for installing filebeat is called filebeat-playboo
 In order to use Ansible to run the playbook and configure a specific machine, that machine must be added to the list of machines Ansible can discover and connect to.  This was done by updating the hosts file, located in/etc/ansible/hosts on the Ansible VM.  This text file contains names of groups.  When playbooks are run with Ansible a specific group needs to be specified, such as elk. This allows us to run certain playbooks on some machines, but not on others.  When updating this file, the private IP address of the server(s) on which the play book is to be run is added to the inventory. The line listing the group is left uncommented as well as the line containing the newly added private IP address.  
 To specify which machine to install the ELK server on, we created a group called “elk” in the hosts file.  We then added the private IP of the ELK VM and specified python3 with “ansible_python_interpreter=/usr/bin/python3”.  The image below illustrates edits we made in the configuration file.
 
-Images/hosts_edits.PNG![hosts_edits_1](https://user-images.githubusercontent.com/71955581/110435144-a35ecb80-8080-11eb-9a18-510a81f11bea.png)
+PNG![hosts_edits_1](https://user-images.githubusercontent.com/71955581/110435144-a35ecb80-8080-11eb-9a18-510a81f11bea.png)
 
 (This is very similar to the way we configured Web-1, Web-2, and Web-3 except for IP address and where we added the IP address.  In this situation, the IPs were added to a group called webservers. )
 
@@ -129,129 +129,6 @@ To specify which machine to install Filebeat on, we accessed the Filebeat config
  
 
 In order to check that the ELK server is running navigate to the following URL: http://40.75.80.174:5601/app/kibana
-
-
- 
-####  Bonus Material
-The playbook for installing ELK, Filebeat, and Metricbeat:
-
-# Installing ELK
-  # name: Configure Elk VM with Docker
-    hosts: elk
-  become: true
-  tasks:
-   # Use apt module
-   - name: Install docker.io
-     apt:
-        update_cache: yes
-        force_apt_get: yes
-        name: docker.io
-        state: present
-# Use apt module
-    - name: Install python3-pip
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-# #Use pip module (It will default to pip3)
-    - name: Install Docker module
-       pip:
-        name: docker
-        state: present
-# Use sysctl module
-    - name: vm.max_map_count
-      sysctl:
-        name: vm.max_map_count
-        value: "262144"
-        state: present
-        reload: yes
-  # Use docker_container module
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        # Please list the ports that ELK runs on
-        published_ports:
-          -  5601:5601
-          -  9200:9200
-          -  5044:5044
-   # Use systemd module
-    - name: Enable service docker on boot
-      systemd:
-        name: docker
-        enabled: yes
-
-
-
-######## Installing Filebeat
----
- - name: installing and launching filebeat
-  hosts: webservers
-  become: yes
-  tasks:
-
-  - name: download filebeat deb
-    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
-
-  - name: install filebeat deb
-    command: dpkg -i filebeat-7.4.0-amd64.deb
-
-  - name: drop in filebeat.yml
-    copy:
-      src: /etc/ansible/filebeat-config.yml
-      dest: /etc/filebeat/filebeat.yml
-
-  - name: enable and configure system module
-    command: filebeat modules enable system
-
-  - name: setup filebeat
-    command: filebeat setup
-
-  - name: start filebeat service
-    command: service filebeat start
-
-  - name: enable service filebeat on boot
-    systemd:
-      name: filebeat
-      enabled: yes
-###Installing Metricbeat
-  - name: Install metric beat
-  hosts: webservers
-  become: true
-  tasks:
-  Use command module
-  - name: Download metricbeat
-    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb
-
-    Use command module
-  - name: install metricbeat
-    command: dpkg -i metricbeat-7.6.1-amd64.deb
-
-  Use copy module
-  - name: drop in metricbeat config
-    copy:
-      src: /etc/ansible/metricbeat-config.yml
-      dest: /etc/metricbeat/metricbeat.yml
-
- #Use command module
-  - name: enable and configure docker module for metric beat
-    command: metricbeat modules enable docker
-
- #Use command module
-  - name: setup metricbeat
-    command: metricbeat setup
-
-  #Use command module
-  - name: start metric beat
-    command: service metricbeat start
-
-  #Use systemd module
-  - name: enable service metricbeat on boot
-    systemd:
-      name: metricbeat
-      enabled: yes
 
 #Next, run the playbook.  To run the playbook use the following command:
 #ansible-playbook install-elk.yml
