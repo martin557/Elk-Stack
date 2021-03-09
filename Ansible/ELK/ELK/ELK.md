@@ -158,16 +158,13 @@ This one shows the security rule allowing our home's public IP address to access
 ![NSG1](https://user-images.githubusercontent.com/71955581/110519455-55c37c80-80db-11eb-997f-a97360e0c3e4.PNG)
 ![NSG2](https://user-images.githubusercontent.com/71955581/110519472-5a883080-80db-11eb-8837-67088e352eed.PNG)
 
-The next set shows ths security rules for the Jump Box.  This one allows us to connect to the Jump Box via ssh, port 22.
+The next set shows ths security rules for the Jump Box.  
+
+This one allows us to connect to the Jump Box via ssh, port 22, with our home's public IP address. 
 
 ![image](https://user-images.githubusercontent.com/71955581/110519992-ef8b2980-80db-11eb-8a0b-3ca23d8a2899.png)
 ![image](https://user-images.githubusercontent.com/71955581/110520036-fade5500-80db-11eb-9220-e6303a52aae7.png)
 
-
-These last images for the Jump Box show rules allowing us to connect to the Jump Box via ssh, port 22 using our home's public IP
-
-![image](https://user-images.githubusercontent.com/71955581/110520678-cb7c1800-80dc-11eb-91ce-e2efea7d7816.png)
-![image](https://user-images.githubusercontent.com/71955581/110520706-d33bbc80-80dc-11eb-954b-44a25edae1a0.png)
 
 This rule allows us to ssh from the Jump Box to the other VMs.  Notice the source destination is the private IP of the Jump Box
 
@@ -179,4 +176,11 @@ These images show the rule to forward port 80 traffic from the load balancer to 
 
 ![image](https://user-images.githubusercontent.com/71955581/110522851-5e1db680-80df-11eb-9fcf-741f52568e24.png)
 ![image](https://user-images.githubusercontent.com/71955581/110522832-5827d580-80df-11eb-9459-e20d33de859f.png)
+
+Finally, this last image shows how we set the health probe check on the load balancer.
+
+[LBrules](https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
+
+
+
 
