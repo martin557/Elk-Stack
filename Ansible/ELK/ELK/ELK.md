@@ -1,3 +1,4 @@
+![docker_image](https://user-images.githubusercontent.com/71955581/110434833-4bc06000-8080-11eb-883c-4cafb1b277bd.PNG)
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
@@ -77,8 +78,8 @@ The playbook implements the following tasks:
 •	Enables the docker service on boot, so that any time the ELK VM is restarted, the docker service starts up automatically
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
- 
-Images/docker_image.PNG
+ [docker_image](https://user-images.githubusercontent.com/71955581/110434888-5b3fa900-8080-11eb-9b60-876bc40e1f1f.PNG)
+
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -98,28 +99,39 @@ Metricbeat collects and ships various system and service metrics to a specified 
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned, SSH into the control node and follow the steps below:
  * Copy the Filebeat configuration file to the Ansible container and use the following path to locate the file:  /etc/ansible/filebeat-config.yml.  Using curl for this step is an efficient way to copy this file in order to avoid errors.  The command to run curl is as follows: curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat
 * Update the Filebeat configuration file, filebeat-config.yml, to include the private IP address of the ELK server (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  Be sure to specify port 9200 on line 1105 and port 5601 on line 1805 next to the IP address, separating the IP and the port with a colon in between.   The updated file show display as follows:
-Images/fbeat1.PNG (lines 1105 – 1107)![fbeat1](https://user-images.githubusercontent.com/71955581/110434617-09971e80-8080-11eb-92ae-89c88b65109e.PNG)
+(lines 1105 – 1107) ![fbeat1](https://user-images.githubusercontent.com/71955581/110435088-92ae5580-8080-11eb-9d73-f949fa353623.PNG)
+![fbeat2](https://user-images.githubusercontent.com/71955581/110435095-94781900-8080-11eb-95f4-fe9fddba71cb.PNG)
+![fbeat1](https://user-images.githubusercontent.com/71955581/110435111-99d56380-8080-11eb-9eae-fa1a8599122a.PNG)
+![fbeat1](https://user-images.githubusercontent.com/71955581/110434617-09971e80-8080-11eb-92ae-89c88b65109e.PNG)
+
 ![fbeat2](https://user-images.githubusercontent.com/71955581/110434626-0c920f00-8080-11eb-8395-6a9fc747ce23.PNG)
 
 Images/fbeat2.PNG (lines 1804 – 1805)
 This step serves two purposes: 1) It will allow us to connect to Kibana via port 5601 with our home’s public IP address, when we later add a security rule allowing us.  2) It sends the Filebeat’s results to Elasticsearch.  
 * Lastly, edit the username on line 1106 to read “elastic” and the password on line 1107 to read “changeme”.
  - Run the playbook, and navigate to the Filebeat installation page on the ELK server GUI.  Success results will display the following images.  
-Images/KibGUi1.PNG
-Images/KibGui2.PNG
+![KibGui1](https://user-images.githubusercontent.com/71955581/110434989-77dbe100-8080-11eb-8d8f-e1b1e3c894d9.png)
+![KibGui2](https://user-images.githubusercontent.com/71955581/110434996-7a3e3b00-8080-11eb-87d7-6ca089b47db3.png)
+
 The file that is the playbook for installing filebeat is called filebeat-playbook.yml and it is copied to the /etc/ansible/roles directory on the Ansible VM. 
 In order to use Ansible to run the playbook and configure a specific machine, that machine must be added to the list of machines Ansible can discover and connect to.  This was done by updating the hosts file, located in/etc/ansible/hosts on the Ansible VM.  This text file contains names of groups.  When playbooks are run with Ansible a specific group needs to be specified, such as elk. This allows us to run certain playbooks on some machines, but not on others.  When updating this file, the private IP address of the server(s) on which the play book is to be run is added to the inventory. The line listing the group is left uncommented as well as the line containing the newly added private IP address.  
 To specify which machine to install the ELK server on, we created a group called “elk” in the hosts file.  We then added the private IP of the ELK VM and specified python3 with “ansible_python_interpreter=/usr/bin/python3”.  The image below illustrates edits we made in the configuration file.
-Images/hosts_edits.PNG
+Images/hosts_edits.PNG![hosts_edits_1](https://user-images.githubusercontent.com/71955581/110435144-a35ecb80-8080-11eb-9a18-510a81f11bea.png)
 (This is very similar to the way we configured Web-1, Web-2, and Web-3 except for IP address and where we added the IP address.  In this situation, the IPs were added to a group called webservers. )
-Images/hosts_edits2.PNG
+![hosts_edits_2](https://user-images.githubusercontent.com/71955581/110435217-bbcee600-8080-11eb-89c9-80ff74d0b27a.png)
+
 To specify which machine to install Filebeat on, we accessed the Filebeat configuration file called filebeat-config.yml  and edited it to include the private IP address of the ELK VM (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  We then made sure to specify port 9200 on line 1105 to the right of the IP and port 5601 on line 1805 next to the IP address, separating the Lastly we changed the username on line 1106 to read “elastic” and the password on line 1107 to read, “ changeme”.  Before saving the file, the configuration file should display the same images as seen in the section “###Using The Playbook”.  They are depicted below.
  
-Images/fbeat1.PNG 
-Images/fbeat2.PNG 
+![mbeat1](https://user-images.githubusercontent.com/71955581/110435289-dacd7800-8080-11eb-824c-45eeb33bdea6.PNG)
+![mbeat2](https://user-images.githubusercontent.com/71955581/110435298-dc973b80-8080-11eb-87f0-1df936befbc4.PNG)
+![fbeat1](https://user-images.githubusercontent.com/71955581/110435246-cb4e2f00-8080-11eb-876d-a2c0a56d27ef.PNG)
+![fbeat2](https://user-images.githubusercontent.com/71955581/110435253-cd17f280-8080-11eb-8fb7-c144ad0d78ef.PNG)
+
+ 
 
 In order to check that the ELK server is running navigate to the following URL: http://40.75.80.174:5601/app/kibana
-Images/KibUrl.PNG
+
+
  
 ####  Bonus Material
 The playbook for installing ELK, Filebeat, and Metricbeat:
@@ -255,9 +267,9 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
 ansible-playbook install-elk.yml
 
-#	#To update Metricbeat’s configuration file, follow the same process as Filebeat’s configuration.  Download the config. file and edit to make the changes as seen below. 
+To update Metricbeat’s configuration file, follow the same process as Filebeat’s configuration.  Download the config. file and edit to make the changes as seen below. 
 
-Images/mbeat1.PNG
-Images/mbeat2.PNG
- 
+ ![mbeat1](https://user-images.githubusercontent.com/71955581/110435317-e15bef80-8080-11eb-9ea1-17e0e7335f02.PNG)
+![mbeat2](https://user-images.githubusercontent.com/71955581/110435330-e3be4980-8080-11eb-9711-a7bfad4cc57b.PNG)
+
 
