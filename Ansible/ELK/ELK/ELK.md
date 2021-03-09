@@ -132,15 +132,15 @@ In order to check that the ELK server is running navigate to the following URL: 
 
 ![KibUrl](https://user-images.githubusercontent.com/71955581/110492718-729e8680-80c0-11eb-88f0-0ef0d577ae38.PNG)
 
-#Once the play is written run it.  To run the playbook use the following command:
+#Once the playbook is written run it with the following command:
 
 ansible-playbook install-elk.yml
 
+ ### Metricbeat
+
 To update Metricbeat’s configuration file, follow the same process as Filebeat’s configuration.  Download the config. file and edit to make the changes as seen below. 
        
-   ### Metricbeat
-        
-#Metricbeat uses the same process of copying a configuration file, editing it, writing a playbook for it, and running the playbook.  The configuration files for Metricbeat are called metricbeat-config.yml.  Once the file is copied, it is edited according to the images below.  
+Metricbeat uses the same process of copying a configuration file, editing it, writing a playbook for it, and running the playbook.  The configuration files for Metricbeat are called metricbeat-config.yml.  Once the file is copied, it is edited according to the images below.  
 ![mbeat1](https://user-images.githubusercontent.com/71955581/110435317-e15bef80-8080-11eb-9ea1-17e0e7335f02.PNG)
 
 ![mbeat2](https://user-images.githubusercontent.com/71955581/110435330-e3be4980-8080-11eb-9711-a7bfad4cc57b.PNG)
