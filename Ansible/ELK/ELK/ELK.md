@@ -145,7 +145,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
         force_apt_get: yes
         name: docker.io
         state: present
-# Use apt module
+Use apt module
     - name: Install python3-pip
       apt:
         force_apt_get: yes
