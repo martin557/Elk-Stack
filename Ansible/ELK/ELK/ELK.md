@@ -145,21 +145,17 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
         force_apt_get: yes
         name: docker.io
         state: present
-
-  #Use apt module
+# Use apt module
     - name: Install python3-pip
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
-
-   #Use pip module (It will default to pip3)
+# Use pip module (It will default to pip3)
     - name: Install Docker module
        pip:
         name: docker
         state: present
-
-
 # Use sysctl module
     - name: vm.max_map_count
       sysctl:
@@ -167,8 +163,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
         value: "262144"
         state: present
         reload: yes
-
- # Use docker_container module
+  # Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
         name: elk
@@ -180,7 +175,6 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
           -  5601:5601
           -  9200:9200
           -  5044:5044
-
    # Use systemd module
     - name: Enable service docker on boot
       systemd:
@@ -189,7 +183,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
 
 
-### Installing Filebeat
+######## Installing Filebeat
 ---
  - name: installing and launching filebeat
   hosts: webservers
