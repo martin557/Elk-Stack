@@ -1,4 +1,3 @@
-![docker_image](https://user-images.githubusercontent.com/71955581/110434833-4bc06000-8080-11eb-883c-4cafb1b277bd.PNG)
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
@@ -78,7 +77,7 @@ The playbook implements the following tasks:
 •	Enables the docker service on boot, so that any time the ELK VM is restarted, the docker service starts up automatically
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
- [docker_image](https://user-images.githubusercontent.com/71955581/110434888-5b3fa900-8080-11eb-9b60-876bc40e1f1f.PNG)
+![docker_image](https://user-images.githubusercontent.com/71955581/110434833-4bc06000-8080-11eb-883c-4cafb1b277bd.PNG)
 
 
 ### Target Machines & Beats
@@ -100,13 +99,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
  * Copy the Filebeat configuration file to the Ansible container and use the following path to locate the file:  /etc/ansible/filebeat-config.yml.  Using curl for this step is an efficient way to copy this file in order to avoid errors.  The command to run curl is as follows: curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat
 * Update the Filebeat configuration file, filebeat-config.yml, to include the private IP address of the ELK server (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  Be sure to specify port 9200 on line 1105 and port 5601 on line 1805 next to the IP address, separating the IP and the port with a colon in between.   The updated file show display as follows:
 (lines 1105 – 1107) ![fbeat1](https://user-images.githubusercontent.com/71955581/110435088-92ae5580-8080-11eb-9d73-f949fa353623.PNG)
-![fbeat2](https://user-images.githubusercontent.com/71955581/110435095-94781900-8080-11eb-95f4-fe9fddba71cb.PNG)
-![fbeat1](https://user-images.githubusercontent.com/71955581/110435111-99d56380-8080-11eb-9eae-fa1a8599122a.PNG)
-![fbeat1](https://user-images.githubusercontent.com/71955581/110434617-09971e80-8080-11eb-92ae-89c88b65109e.PNG)
+(lines 1804 – 1805)![fbeat2](https://user-images.githubusercontent.com/71955581/110435880-8e366c80-8081-11eb-942c-44b011bb9591.PNG)
 
-![fbeat2](https://user-images.githubusercontent.com/71955581/110434626-0c920f00-8080-11eb-8395-6a9fc747ce23.PNG)
-
-Images/fbeat2.PNG (lines 1804 – 1805)
 This step serves two purposes: 1) It will allow us to connect to Kibana via port 5601 with our home’s public IP address, when we later add a security rule allowing us.  2) It sends the Filebeat’s results to Elasticsearch.  
 * Lastly, edit the username on line 1106 to read “elastic” and the password on line 1107 to read “changeme”.
  - Run the playbook, and navigate to the Filebeat installation page on the ELK server GUI.  Success results will display the following images.  
@@ -122,11 +116,8 @@ Images/hosts_edits.PNG![hosts_edits_1](https://user-images.githubusercontent.com
 
 To specify which machine to install Filebeat on, we accessed the Filebeat configuration file called filebeat-config.yml  and edited it to include the private IP address of the ELK VM (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  We then made sure to specify port 9200 on line 1105 to the right of the IP and port 5601 on line 1805 next to the IP address, separating the Lastly we changed the username on line 1106 to read “elastic” and the password on line 1107 to read, “ changeme”.  Before saving the file, the configuration file should display the same images as seen in the section “###Using The Playbook”.  They are depicted below.
  
-![mbeat1](https://user-images.githubusercontent.com/71955581/110435289-dacd7800-8080-11eb-824c-45eeb33bdea6.PNG)
-![mbeat2](https://user-images.githubusercontent.com/71955581/110435298-dc973b80-8080-11eb-87f0-1df936befbc4.PNG)
-![fbeat1](https://user-images.githubusercontent.com/71955581/110435246-cb4e2f00-8080-11eb-876d-a2c0a56d27ef.PNG)
-![fbeat2](https://user-images.githubusercontent.com/71955581/110435253-cd17f280-8080-11eb-8fb7-c144ad0d78ef.PNG)
-
+![fbeat1](https://user-images.githubusercontent.com/71955581/110435950-a27a6980-8081-11eb-882d-587ae5a8ad9d.PNG)
+![fbeat2](https://user-images.githubusercontent.com/71955581/110435957-a4442d00-8081-11eb-99fa-df409fb0f096.PNG)
  
 
 In order to check that the ELK server is running navigate to the following URL: http://40.75.80.174:5601/app/kibana
