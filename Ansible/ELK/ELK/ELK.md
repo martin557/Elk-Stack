@@ -132,13 +132,13 @@ In order to check that the ELK server is running navigate to the following URL: 
 ####  Bonus Material
 The playbook for installing ELK, Filebeat, and Metricbeat:
 
-### Installing ELK
+# Installing ELK
 
 - name: Configure Elk VM with Docker
   hosts: elk
   become: true
   tasks:
-#Use apt module
+# Use apt module
     - name: Install docker.io
       apt:
         update_cache: yes
@@ -155,7 +155,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
 
   # Use pip module (It will default to pip3)
     - name: Install Docker module
-      pip:
+       pip:
         name: docker
         state: present
 
@@ -220,8 +220,7 @@ The playbook for installing ELK, Filebeat, and Metricbeat:
     systemd:
       name: filebeat
       enabled: yes
-###  Installing Metricbeat
-
+###Installing Metricbeat
   - name: Install metric beat
   hosts: webservers
   become: true
