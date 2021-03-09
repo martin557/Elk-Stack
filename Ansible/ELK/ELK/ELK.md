@@ -24,7 +24,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly available in addition to restricting traffic to the network.  It also plays a part in the redundancy of our network.  While the VMs in the backend pool provide the redundancy, the load balancer is the device responsible for sending traffic to them to handle the flow of requests.   
 A load balancer protects the availability of resources.  It does this by first preventing overwhelm on a single server by evenly distributing traffic to all of the servers.  This also helps mitigate DDos attacks.  Secondly, it has a health probe feature that regularly checks the functionality of the other machines to verify that they are working properly before sending traffic to them.  Problematic machines are reported and traffic to them is stopped.  This ensures high availability by sending requests only to servers that are online.          
 
-The advantage of a jump box is twofold.  First, traffic is forced through a single node making it easier to implement routing logic and design networks. By focusing on the interactions between the routers instead of all of the machines, we only have to worry about a few connections between a few machines, rather than connections between all machines.  Secondly, the jump box is exposed to the public internet and sits in front of other machines that are not exposed to the internet. Therefore, the other machines were configured without being exposed to the internet.  This adds a layer of protection.  
+The advantage of a Jump Box is twofold.  First, traffic is forced through a single node making it easier to implement routing logic and design networks. By focusing on the interactions between the routers instead of all of the machines, we only have to worry about a few connections between a few machines, rather than connections between all machines.  Secondly, the Jump Box is exposed to the public internet and sits in front of other machines that are not exposed to the internet. Therefore, the other machines were configured without being exposed to the internet.  This adds a layer of protection.  
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files and system metrics.
 By collecting data about the file system, Filebeat looks out for which files have changed and when they changed.  
@@ -44,7 +44,7 @@ The configuration details of each machine may be found below.
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
-Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following whitelisted IP address: 
+Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following whitelisted IP address: 
 
 72.65.221.165.
 
