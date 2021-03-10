@@ -105,7 +105,7 @@ Metricbeat collects and ships various system and service metrics to a specified 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned, SSH into the control node and follow the steps below:
- * Copy the Filebeat configuration file to the Ansible container and use the following path to locate the file:  /etc/ansible/filebeat-config.yml.  Using curl for this step is an efficient way to copy this file in order to avoid errors.  The command to run curl is as follows: curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat
+ * Copy the Filebeat configuration file to the Ansible container and use the following path to locate the file:  /etc/ansible/filebeat-config.yml.  Using curl for this step is an efficient way to copy this file in order to avoid errors.  The command to run curl is as follows: curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat
 * Update the Filebeat configuration file, filebeat-config.yml, to include the private IP address of the ELK server (10.1.0.4) next to the “hosts” header on lines 1105 and 1805.  Be sure to specify port 9200 on line 1105 and port 5601 on line 1805 next to the IP address, separating the IP and the port with a colon in between.   The updated file show display as follows:
 
 (lines 1105 – 1107) ![fbeat1](https://user-images.githubusercontent.com/71955581/110435088-92ae5580-8080-11eb-9d73-f949fa353623.PNG)
@@ -185,6 +185,36 @@ This rule allows port 80 traffic to be forwarded from the load balancer to the R
 Finally, this last rule shows the health probe setting on the load balancer.
 
 ![image](https://user-images.githubusercontent.com/71955581/110523955-ca4cea00-80e0-11eb-8c40-b3e354ce89be.PNG)
+
+The next five slides show a few of the properties of each machine.  Notice key information for each one, such as its public and private IP address, operating system, status, and size.  
+
+This first one shows information about the ELK server.  
+
+![Ubuntucred](https://user-images.githubusercontent.com/71955581/110568853-af4e9a00-8121-11eb-8e35-487f51cc76a2.PNG)
+
+Web-1.
+
+![Web-1cred](https://user-images.githubusercontent.com/71955581/110568931-cd1bff00-8121-11eb-93a6-d6b9170e9b63.PNG)
+
+Web-2
+![web2](https://user-images.githubusercontent.com/71955581/110568938-d016ef80-8121-11eb-8d37-3b56dce8cfac.PNG)
+
+Web-3  
+This particular screen shot reveals additional information not contained in the previous images, such as disk and RAM sizes.    
+![image](https://user-images.githubusercontent.com/71955581/110569679-ce99f700-8122-11eb-84b9-992e2b3700fc.png)
+
+Jump Box
+
+![image](https://user-images.githubusercontent.com/71955581/110570024-4ec05c80-8123-11eb-80ac-7667edb07efc.png)
+
+This last image shows information about the load balancer.  Two important pieces of information listed is the number of machines, highlighted in yellow, listed under the backend pool and the load balancer's IP address.  First, the three virtual machines listed under the "Backend Pool" lets us know that all three virtual machines are behind the load balancer.  The IP of the load balancer matches the IP addresses of Web-1, Web-2, and Web-3.  When these three machines were created, they were created without a public IP. But when the load balancer was created, these three machines were automatically given the IP for the load balancer.  This maps those machines in the network so that any time a user types that specific IP address, it will be directed to one of those servers after reaching the load balancer.  (This, of course, will take place after a security rule is created allowing public traffic to any of those machines.)   
+
+![image](https://user-images.githubusercontent.com/71955581/110571900-60efca00-8126-11eb-9a3c-ed10fe60a03f.png)
+
+
+
+![image](https://user-images.githubusercontent.com/71955581/110570756-72d06d80-8124-11eb-91a0-f0c0778c3dad.png)
+
 
 
 
