@@ -209,9 +209,6 @@ Jump Box
 
 This last image shows information about the load balancer.  Two important pieces of information listed is the number of machines, highlighted in yellow, listed under the backend pool and the load balancer's IP address.  First, the three virtual machines listed under the "Backend Pool" lets us know that all three virtual machines are behind the load balancer.  The IP of the load balancer matches the IP addresses of Web-1, Web-2, and Web-3.  When these three machines were created, they were created without a public IP. But when the load balancer was created, these three machines were automatically given the IP for the load balancer.  This maps those machines in the network so that any time a user types that specific IP address, it will be directed to one of those servers after reaching the load balancer.  (This, of course, will take place after a security rule is created allowing public traffic to any of those machines.)   
 
-![image](https://user-images.githubusercontent.com/71955581/110571900-60efca00-8126-11eb-9a3c-ed10fe60a03f.png)
-
-
 
 ![image](https://user-images.githubusercontent.com/71955581/110570756-72d06d80-8124-11eb-91a0-f0c0778c3dad.png)
 
