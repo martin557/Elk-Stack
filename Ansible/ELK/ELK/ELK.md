@@ -65,6 +65,8 @@ The following table shows each machine and the IP addresses that are allowed to 
 |Web-2	    |NO	       |10.0.0.4|
 |Web-3	    |NO    	   |10.0.0.4|
 
+Web-1, Web-2, and Web-3 are only accessible via the Jump Box (SSH); ELK is accessible via our home’s public IP address via port 5601 over HTTP that was enabled as a network security rule.  It's also accessible via Jump Box's private IP address via SSH.  The Jump Box is only accessible via our home’s public IP address via SSH on port 22 that we enabled as a network security group.
+
 The following table displays which machines, with their IPs, are able to access the ELK machine. 
 
 |Name  | Access to ELK    |IP Addresses of Machine|   
@@ -74,13 +76,6 @@ The following table displays which machines, with their IPs, are able to access 
 |Web-2	    |NO	       |10.0.0.6|
 |Web-3	    |NO    	   |10.0.0.7|
 
-
-
-
-
-
-
-Web-1, Web-2, and Web-3 are only accessible via the Jump Box (SSH); ELK is accessible via our home’s public IP address via port 5601 over HTTP that was enabled as a network security rule.  It's also accessible via Jump Box's private IP address via SSH.  The Jump Box is only accessible via our home’s public IP address via SSH on port 22 that we enabled as a network security group.
 
 ### Elk Configuration            
 
