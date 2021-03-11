@@ -104,7 +104,9 @@ The following screenshot displays the result of running `docker ps` after succes
 This ELK server is configured to monitor the following machines:
 
 10.0.0.5 (Web-1)
+
 10.0.0.6 (Web-2)
+
 10.0.0.7 (Web-3)
 
 We have installed the following Beats on these machines:
@@ -219,7 +221,7 @@ Jump Box
 
 ![image](https://user-images.githubusercontent.com/71955581/110570024-4ec05c80-8123-11eb-80ac-7667edb07efc.png)
 
-This last image shows information about the load balancer.  Two take aways involve  the number of machines, highlighted in yellow, and the load balancer's IP address.  First, the highlighted area lets us know that all three virtual machines are behind the load balancer.  Secondly, the IP address of the load balancer matches the IP addresses of Web-1, Web-2, and Web-3.  When these three machines were created, they were created without a public IP. But when the load balancer was created, these three machines were automatically given the IP for the load balancer.  This maps those machines within the virtual network so that any time a user types that specific IP address, he or she will be directed to one of those servers after reaching the load balancer.  (This, of course, will take place after a security rule is created allowing public traffic to any of those machines.)  Both of these data points reveal that our load balancer and servers are properly connected and configured.       
+This last image shows information about the load balancer.  Two take aways involve  the number of machines, highlighted in yellow, and the load balancer's IP address.  First, the highlighted area lets us know that all three virtual machines are behind the load balancer.  Secondly, the IP address of the load balancer matches the IP addresses of Web-1, Web-2, and Web-3.  When these three machines were created, they were created without a public IP. But when the load balancer was created, these three machines were automatically given the IP for the load balancer.  This maps these machines within the virtual network so that any time a user types that specific IP address, he or she will be directed to one of those servers after reaching the load balancer.  (This, of course, will take place after a security rule is created allowing public traffic to any of those machines.)  Both of these data points reveal that our load balancer and servers are properly connected and configured.       
 
 
 ![image](https://user-images.githubusercontent.com/71955581/110570756-72d06d80-8124-11eb-91a0-f0c0778c3dad.png)
