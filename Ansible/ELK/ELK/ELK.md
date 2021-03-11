@@ -52,7 +52,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 A summary of the access policies in place can be found in the tables
 below.
 
-The following table shows each machine and the IP addresses that are allowed to enter it
+The following table shows each machine and the IP addresses that are allowed to enter it.
 
 |Name  |Publicly Accessible	    |Allowed IP Addresses|   
 -----|--------------------|-----------------------------------------
@@ -82,19 +82,19 @@ The playbook implements the following tasks:
 
 •	Configures Elk VM with Dockers
 
-•	Installs two apt packages called docker.io, the Docker engine, used for running containers, and python3-pip, the package used to install Python software
+•	Installs two apt packages called docker.io, the Docker engine, used for running containers, and python3-pip, the package used to install Python software.
 
 •	Installs a pip package called docker, the Python client for Docker, which is required by Ansible to control the state of Docker containers.
 
 •	Downloads and launches the Docker container called sebp/elk:76;  sebp is the organization that made the container. elk is the container and 761 is the version.
 
-•	Configures the container to start with the following port mappings: 5601:5601, 9200:9200, and 5044:5044 
+•	Configures the container to start with the following port mappings: 5601:5601, 9200:9200, and 5044:5044 .
 
 •	Configures the VM to use more memory; The ELK container will not run without this setting.
 
-•	Starts the container
+•	Starts the container.
 
-•	Enables the docker service on boot, so that any time the ELK VM is restarted, the docker service starts up automatically
+•	Enables the docker service on boot, so that any time the ELK VM is restarted, the docker service starts up automatically.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 ![docker_image](https://user-images.githubusercontent.com/71955581/110434833-4bc06000-8080-11eb-883c-4cafb1b277bd.PNG)
