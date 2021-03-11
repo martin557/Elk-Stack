@@ -125,7 +125,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 This step serves two purposes: 1) It will allow us to connect to Kibana via port 5601 with our home’s public IP address, when we later add a security rule allowing us.  2) It sends the Filebeat’s results to Elasticsearch.  
 * Lastly, edit the username on line 1106 to read “elastic” and the password on line 1107 to read “changeme”.
- - Run the playbook, and navigate to the Filebeat installation page on the ELK server GUI.  Success results will display the following images.  
+ - Run the playbook, and navigate to the Filebeat installation page on the ELK server GUI.  Successful results will display the following images.  
 ![KibGui1](https://user-images.githubusercontent.com/71955581/110434989-77dbe100-8080-11eb-8d8f-e1b1e3c894d9.png)
 ![KibGui2](https://user-images.githubusercontent.com/71955581/110434996-7a3e3b00-8080-11eb-87d7-6ca089b47db3.png)
 
