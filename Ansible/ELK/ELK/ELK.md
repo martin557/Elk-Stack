@@ -60,7 +60,7 @@ The following table shows each machine and the IP addresses that are allowed to 
 |Name  |Publicly Accessible	    |Allowed IP Addresses|   
 -----|--------------------|-----------------------------------------
 |Jump box   |YES	     |72.65.221.165 |
-|ELK 	      |YES       |72.65.221.165; 10.0.0.4 (private)|
+|ELK 	      |YES       |72.65.221.165; 10.0.0.4 |
 |Web-1	    |NO	       |10.0.0.4|
 |Web-2	    |NO	       |10.0.0.4|
 |Web-3	    |NO    	   |10.0.0.4|
