@@ -40,7 +40,7 @@ The configuration details of each machine may be found below.
 |Web-1		|Server; receives web traffic; part of backend pool    |Linux  |10.0.0.5 | 
 |Web-2		|Server; receives web traffic; part of backend pool|Linux			|10.0.0.6 |
 |Web-3		|Server; receives web traffic; part of backend pool|Linux   			|10.0.0.7 |
-|ELK		|Monitors the performance of the web server that is running DVWA and collects and visualizes the data  |Linux|10.1.0.4 (private) 40.75.80.174 (public)|
+|ELK		|Monitors the performance of web servers Web-1, Web-2, and Web-3 that are running DVWA and collects and visualizes the data  |Linux|10.1.0.4 (private) 40.75.80.174 (public)|
             
 ### Access Policies
 
@@ -60,18 +60,18 @@ The following table shows each machine and the IP addresses that are allowed to 
 |Name  |Publicly Accessible	    |Allowed IP Addresses|   
 -----|--------------------|-----------------------------------------
 |Jump box   |YES	     |72.65.221.165 |
-|ELK 	      |YES       |72.65.221.165 (public); 10.0.0.4 (private)|
+|ELK 	      |YES       |72.65.221.165; 10.0.0.4 (private)|
 |Web-1	    |NO	       |10.0.0.4|
 |Web-2	    |NO	       |10.0.0.4|
 |Web-3	    |NO    	   |10.0.0.4|
 
 Web-1, Web-2, and Web-3 are only accessible via the Jump Box (SSH); ELK is accessible via our home’s public IP address via port 5601 over HTTP that was enabled as a network security rule.  It's also accessible via Jump Box's private IP address via SSH.  The Jump Box is only accessible via our home’s public IP address via SSH on port 22 that we enabled as a network security group.
 
-The following table displays which machines, with their IPs, are able to access the ELK machine. 
+The following table displays which machines, with their IPs, are able access the ELK machine via SSH. 
 
-|Name  | Access to ELK    |IP Addresses of Machine|   
+|Name  | Access to ELK via SSH    |IP Addresses of Machine|   
 -----|--------------------|-----------------------------------------
-|Jump box   |YES	     |40.85.168.70 (public); 10.0.0.4 (private)   |
+|Jump box   |YES	     |40.85.168.70; 10.0.0.4 (private)   |
 |Web-1	    |NO	       |10.0.0.5|
 |Web-2	    |NO	       |10.0.0.6|
 |Web-3	    |NO    	   |10.0.0.7|
