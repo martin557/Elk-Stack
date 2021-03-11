@@ -110,7 +110,7 @@ We have installed the following Beats on these machines:
 Metricbeat and Filebeat
 These Beats allow us to collect the following information from each machine:
 Filebeat collects system data about the file system in the form of log files and ships them to Elasticsearch or Logstash for indexing.  It helps keep the simple things simple by offering a lightweight way to forward and centralize logs and files so that analysts can monitor files for suspicious changes.
-Metricbeat collects and ships various system and service metrics to a specified output destination, such as Elasticsearch or Logstash.  It is used to collect specific information about the machine, called metrics, such as CPU usage, memory usage, and uptime.  Analysts use them to determine the health or condition of a machine.  
+Metricbeat collects and ships various system and service metrics to a specified output destination, such as Elasticsearch or Logstash.  It is used to collect specific information about the machine, called metrics, such as CPU usage, memory usage, and uptime.  Analysts use them to determine the health, or working condition, of a machine.  
 
 
 
